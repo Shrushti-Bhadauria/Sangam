@@ -89,14 +89,14 @@ export function LandingPage({ onOpenDemo, onGoToLogin, onGoToDashboard }) {
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
           <div className="relative z-10 max-w-3xl space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-amber-500/20 border border-amber-400/30 rounded-full px-3 py-1 text-xs text-amber-300">
+            {/* <div className="inline-flex items-center space-x-2 bg-amber-500/20 border border-amber-400/30 rounded-full px-3 py-1 text-xs text-amber-300">
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-              <span>Smart India Hackathon 2026 — Problem Statement 129</span>
-            </div>
+              <span></span>
+            </div> */}
 
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
               One Citizen. <br />
-              Connected Services. <br />
+              {/* Connected Services. <br /> */}
               <span className="text-amber-400">One Unified Journey.</span>
             </h1>
 

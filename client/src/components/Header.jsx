@@ -59,10 +59,11 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
       <div className="bg-[#0f294a] text-white text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center space-x-2">
-            <span className="font-semibold text-amber-400">SIH 2026 Prototype</span>
-            <span className="text-slate-300">|</span>
-            <span className="text-slate-200">Government of Maharashtra — Problem Statement 129: Platform Interoperability</span>
+            <span className="font-semibold text-amber-400"></span>
+            <span className="text-slate-300"></span>
+            <span className="text-slate-200"></span>
           </div>
+
           <div className="flex items-center space-x-3 text-slate-300 text-[11px]">
             <span>MahaDBT</span>
             <span>•</span>
@@ -70,7 +71,9 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
             <span>•</span>
             <span>e-Pramaan</span>
             <span>•</span>
-            <span className="text-emerald-400 font-medium">Connectors Online</span>
+            <span className="text-emerald-400 font-medium">
+              Connectors Online
+            </span>
           </div>
         </div>
       </div>
@@ -78,23 +81,32 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+
           {/* Logo & Emblem */}
           <div
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => setActiveTab('home')}
           >
-            <div className="w-10 h-10 rounded-lg bg-[#0f294a] flex items-center justify-center text-white font-bold shadow-xs">
-              <Shield className="w-6 h-6 text-amber-400" />
-            </div>
+            <img
+              src="/sangam-logo.png"
+              alt="SANGAM Logo"
+              className="w-[90px] h-[64px] object-contain"
+            />
+
             <div>
               <div className="flex items-center space-x-1.5">
-                <span className="text-xl font-bold tracking-tight text-[#0f294a]">SANGAM</span>
+                <span className="text-xl font-bold tracking-tight text-[#0f294a]">
+                  SANGAM
+                </span>
+
                 <span className="text-[10px] font-semibold uppercase px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-300">
                   संगम
                 </span>
               </div>
+
               <p className="text-[11px] text-slate-500 font-medium hidden sm:block">
-                One Citizen. Connected Services. One Unified Journey.
+                {/* One Citizen. Connected Services. One Unified Journey. */}
+                Ek Setu Sabki Seva
               </p>
             </div>
           </div>
@@ -161,6 +173,7 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
 
           {/* Right Header Controls: Language, Notifications, User/Role */}
           <div className="flex items-center space-x-3">
+
             {/* Language Selector: EN | हिन्दी | मराठी */}
             <div className="inline-flex rounded-md border border-slate-200 bg-slate-50 p-0.5 text-xs font-medium">
               <button
@@ -173,6 +186,7 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
               >
                 EN
               </button>
+
               <button
                 onClick={() => changeLanguage('hi')}
                 className={`px-2 py-1 rounded transition-colors ${
@@ -183,6 +197,7 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
               >
                 हिंदी
               </button>
+
               <button
                 onClick={() => changeLanguage('mr')}
                 className={`px-2 py-1 rounded transition-colors ${
@@ -204,6 +219,7 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
                   aria-label="Notifications"
                 >
                   <Bell className="w-4 h-4" />
+
                   {unreadCount > 0 && (
                     <span className="absolute top-1 right-1 w-4 h-4 bg-red-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                       {unreadCount}
@@ -217,6 +233,7 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
                       <span className="text-xs font-semibold text-slate-800">
                         {t('recentNotificationsTitle')} ({unreadCount} unread)
                       </span>
+
                       {unreadCount > 0 && (
                         <button
                           onClick={handleMarkAllRead}
@@ -226,6 +243,7 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
                         </button>
                       )}
                     </div>
+
                     <div className="max-h-80 overflow-y-auto divide-y divide-slate-100">
                       {notifications.length === 0 ? (
                         <div className="p-4 text-center text-xs text-slate-400">
@@ -240,12 +258,24 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
                             }`}
                           >
                             <div className="flex items-start justify-between">
-                              <span className="font-semibold text-slate-800">{notif.title}</span>
+                              <span className="font-semibold text-slate-800">
+                                {notif.title}
+                              </span>
+
                               <span className="text-[10px] text-slate-400">
-                                {new Date(notif.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                {new Date(notif.createdAt).toLocaleTimeString(
+                                  [],
+                                  {
+                                    hour: '2-digit',
+                                    minute: '2-digit'
+                                  }
+                                )}
                               </span>
                             </div>
-                            <p className="text-slate-600 mt-1 leading-snug">{notif.message}</p>
+
+                            <p className="text-slate-600 mt-1 leading-snug">
+                              {notif.message}
+                            </p>
                           </div>
                         ))
                       )}
@@ -259,27 +289,38 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
             {user ? (
               <div className="flex items-center space-x-2">
                 <div className="hidden lg:flex items-center space-x-1.5 bg-slate-100 rounded-md p-1 text-xs">
-                  <span className="text-[11px] text-slate-500 font-medium px-1">Role:</span>
+                  <span className="text-[11px] text-slate-500 font-medium px-1">
+                    Role:
+                  </span>
+
                   <button
                     onClick={() => quickLogin('CITIZEN')}
                     className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
-                      user.role === 'CITIZEN' ? 'bg-[#0f294a] text-white' : 'text-slate-600 hover:bg-slate-200'
+                      user.role === 'CITIZEN'
+                        ? 'bg-[#0f294a] text-white'
+                        : 'text-slate-600 hover:bg-slate-200'
                     }`}
                   >
                     Citizen
                   </button>
+
                   <button
                     onClick={() => quickLogin('DEPARTMENT_OFFICER')}
                     className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
-                      user.role === 'DEPARTMENT_OFFICER' ? 'bg-[#0f294a] text-white' : 'text-slate-600 hover:bg-slate-200'
+                      user.role === 'DEPARTMENT_OFFICER'
+                        ? 'bg-[#0f294a] text-white'
+                        : 'text-slate-600 hover:bg-slate-200'
                     }`}
                   >
                     Officer
                   </button>
+
                   <button
                     onClick={() => quickLogin('INTEGRATION_ADMIN')}
                     className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors ${
-                      user.role === 'INTEGRATION_ADMIN' ? 'bg-[#0f294a] text-white' : 'text-slate-600 hover:bg-slate-200'
+                      user.role === 'INTEGRATION_ADMIN'
+                        ? 'bg-[#0f294a] text-white'
+                        : 'text-slate-600 hover:bg-slate-200'
                     }`}
                   >
                     Admin
@@ -288,9 +329,15 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
 
                 <div className="flex items-center space-x-2 border-l border-slate-200 pl-2">
                   <div className="text-right hidden sm:block">
-                    <p className="text-xs font-semibold text-slate-800 leading-tight">{user.name}</p>
-                    <p className="text-[10px] text-slate-500 capitalize">{user.role.replace('_', ' ').toLowerCase()}</p>
+                    <p className="text-xs font-semibold text-slate-800 leading-tight">
+                      {user.name}
+                    </p>
+
+                    <p className="text-[10px] text-slate-500 capitalize">
+                      {user.role.replace('_', ' ').toLowerCase()}
+                    </p>
                   </div>
+
                   <button
                     onClick={logout}
                     className="p-1.5 rounded text-slate-500 hover:text-red-600 hover:bg-red-50 transition-colors"
@@ -315,7 +362,11 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 rounded-md text-slate-600 hover:bg-slate-100"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {mobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
               </button>
             </div>
           </div>
@@ -325,35 +376,54 @@ export function Header({ onOpenDemo, activeTab, setActiveTab }) {
         {mobileMenuOpen && (
           <div className="md:hidden py-3 border-t border-slate-200 space-y-1">
             <button
-              onClick={() => { setActiveTab('home'); setMobileMenuOpen(false); }}
+              onClick={() => {
+                setActiveTab('home');
+                setMobileMenuOpen(false);
+              }}
               className="w-full text-left px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded"
             >
               {t('navHome')}
             </button>
+
             {user && (
               <>
                 <button
-                  onClick={() => { setActiveTab('dashboard'); setMobileMenuOpen(false); }}
+                  onClick={() => {
+                    setActiveTab('dashboard');
+                    setMobileMenuOpen(false);
+                  }}
                   className="w-full text-left px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded"
                 >
                   {t('navDashboard')}
                 </button>
+
                 <button
-                  onClick={() => { setActiveTab('citizen360'); setMobileMenuOpen(false); }}
+                  onClick={() => {
+                    setActiveTab('citizen360');
+                    setMobileMenuOpen(false);
+                  }}
                   className="w-full text-left px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded"
                 >
                   {t('navCitizen360')}
                 </button>
               </>
             )}
+
             <button
-              onClick={() => { setActiveTab('architecture'); setMobileMenuOpen(false); }}
+              onClick={() => {
+                setActiveTab('architecture');
+                setMobileMenuOpen(false);
+              }}
               className="w-full text-left px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 rounded"
             >
               {t('navArchitecture')}
             </button>
+
             <button
-              onClick={() => { onOpenDemo(); setMobileMenuOpen(false); }}
+              onClick={() => {
+                onOpenDemo();
+                setMobileMenuOpen(false);
+              }}
               className="w-full text-left px-3 py-2 text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 rounded"
             >
               {t('runDemoBtn')}
